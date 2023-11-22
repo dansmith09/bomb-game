@@ -1,0 +1,188 @@
+:root {
+    --green: #c5f2da;
+    --red: #ffacbd;
+    --purple: #d3b2e2;
+    --BG-grey: #8e90aa;
+}
+
+#root {
+    background-color: var(--BG-grey);
+}
+
+.gameContainer{
+    box-shadow: 0 0 20px rgba(0,0,0,0.1),
+    0 0 40px rgba(0,0,0,0.1),
+    0 0 60px rgba(0,0,0,0.1),
+    0 0 80px rgba(0,0,0,0.1);
+    transition: 0.4s;
+}
+.card {
+    transition-property: top, left, scale, filter;
+    transition-duration: 0.4s;
+    transition-timing-function: ease-in-out;
+}
+
+.setCard {
+    filter: brightness(90%) !important;
+}
+.invisibleSetCard {
+    filter: brightness(75%) !important;
+}
+
+.brightness100 {
+    filter: brightness(100%) !important;
+}
+
+.faceDownCard {
+    border: solid 6px rgb(242, 242, 242) !important;
+    border-radius: 10px !important;
+    background-image: url('https://i.ibb.co/WFNDrV3/Untitled-design-8.png')!important;
+    background-position: center center; 
+}
+
+.faceDownCardOnBoard {
+    border: solid 4px rgb(242, 242, 242) !important;
+    border-radius: 6.67px !important;
+    background-image: url('https://i.ibb.co/3sfHFPj/Untitled-design-9.png')!important;
+    background-position: center center; 
+}
+
+.s {
+    background-color: rgb(41, 41, 41);
+}
+.h {
+    background-color: red;
+}
+.c {
+    background-color: green;
+}
+.d {
+    background-color: blue;
+}
+
+.cardHover {
+    background-color: var(--purple) !important;
+    transform: translatey(-10px) !important;
+}
+
+.playerTwoCards {
+    /* background: greenyellow; */
+}
+
+.cardOnBoard {
+
+}
+
+.blurContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background: var(--BG-grey);
+    background: rgba(255, 255, 255, 0.22);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5.9px);
+    -webkit-backdrop-filter: blur(5.9px);
+}
+
+.waitingForReadyDiv {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.playerReady {
+    background-color: #87e4b2;
+    padding: 4px;    
+    border-radius: 10px;
+}
+
+.waitingFor {
+    background-color: #ff6080;
+    padding: 4px;    
+    border-radius: 10px;
+}
+
+.gameBtn {
+    width: 150px;
+    height: 50px;
+    border: 2px solid white
+}
+
+.gameBtn:hover {
+    box-shadow: 0 5px 15px rgba(202, 200, 204, 0.4);
+}
+
+.joinGameBtn {
+    background-color: var(--purple);
+    padding: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 20px;
+    position: absolute;
+    top: 65px;
+    left: 245px;
+    text-align: center;
+}
+
+.readyForGameBtn {
+    background-color: var(--green);
+    padding: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 20px;
+    position: absolute;
+    top: 180px;
+    left: 245px;
+    text-align: center;
+    z-index: 100;
+}
+
+.playCardsBtn {
+    background-color: var(--green);
+    padding: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 20px;
+    position: absolute;
+    top: 65px;
+    left: 460px;
+    z-index: 9999;
+}
+.clearCardsBtn {
+    background-color: var(--red);
+    padding: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 20px;
+    position: absolute;
+    top: 65px;
+    left: 30px;
+    z-index: 9999;
+}
+
+#selectedCard1 {
+    top: -195px !important;
+    left: 202px !important;
+    scale: 80% !important;
+    z-index: 10 !important;
+}
+#selectedCard2 {
+    top: -195px !important;
+    left: 229px !important;
+    scale: 80% !important;
+    z-index: 11 !important;
+}
+#selectedCard3 {
+    top: -195px !important;
+    left: 257px !important;
+    scale: 80% !important;
+    z-index: 12 !important;
+}
+#selectedCard4 {
+    top: -195px !important;
+    left: 284px !important;
+    scale: 80% !important;
+    z-index: 13 !important;
+}
