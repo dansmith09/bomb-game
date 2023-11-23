@@ -105,7 +105,7 @@
 }
 
 .gameBtn {
-    color: white;
+    color: var(--BG-grey);
     width: 150px;
     height: 50px;
     border: 2px solid white
