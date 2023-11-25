@@ -29,8 +29,6 @@ function App() {
     <Container className='containerBG d-flex align-items-center justify-content-center'
     style={{minHeight: "100vh",}}>
         <ToastContainer limit={3}/>
-        <Nav/>
-        <Settings/>
         <Routes>
           <Route path='/' element={<Lobby/>}/>
           <Route path='/lobby' element={<Lobby/>}/>
@@ -40,6 +38,8 @@ function App() {
           <Route path='/Play/:gameId' element={<Game/>}/>
           <Route path='/Account/:walletAddress' element={<Account/>}/>
         </Routes>
+        <Nav/>
+        <Settings/>
     </Container>
   </CurrentAccountContext.Provider>
 </>

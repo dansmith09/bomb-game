@@ -86,6 +86,39 @@
     -webkit-backdrop-filter: blur(5.9px);
 }
 
+.settingsMenu {
+    position: fixed;
+    top: 15px;
+    right: 55px;
+    border: 2px solid white;
+    border-radius: 20px;
+    padding: 10px;
+    text-align: center;
+    background-color: var(--purple);
+}
+
+.settingsMenu * {
+    color: black;
+    cursor: pointer;
+}
+
+.settingsMenu *:hover {
+    color: white;
+}
+
+.settingsIcon {
+    width: 45px;
+    height: 45px;
+    margin: 0px;
+    padding: 0px;
+    transition-duration: 0.1s;
+    transition-timing-function: ease-in-out;
+}
+
+.settingsIcon:hover {
+    color: white;
+}
+
 .waitingForReadyDiv {
     display: flex;
     align-items: center;
@@ -105,7 +138,7 @@
 }
 
 .gameBtn {
-    color: white;
+    color: black;
     width: 150px;
     height: 50px;
     border: 2px solid white

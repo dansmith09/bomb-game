@@ -13,7 +13,7 @@ export default function Settings() {
 
     const [currentETHAccount, setCurrentETHAccount] = useContext(CurrentAccountContext);
     
-    const [menuOpened, setMenuOpened] = useState(true)
+    const [menuOpened, setMenuOpened] = useState(false)
     const [accDisplay, setAccDisplay] = useState(true)
 
     const getAccDisplay = async () => {
@@ -77,6 +77,10 @@ export default function Settings() {
 
     }
 
+    const toggleOpenMenu = () => {
+        setMenuOpened(!menuOpened)
+    }
+
     const menuMyAccountOrSignIn = () => {
         if(currentETHAccount) {
             navigate(`/account/${currentETHAccount}`)
@@ -91,13 +95,17 @@ export default function Settings() {
 
   return (
     <>
+    {menuOpened ? (
+    <div className={'blurContainer'} onClick={toggleOpenMenu}></div>
+    ): ''}
         <div
+        onClick={toggleOpenMenu}
         style={{
             position: 'fixed',
             top: 0,
             right: 0,
-            margin: '2px',
-            marginRight: '3px',
+            margin: '5px',
+            marginTop: '6px',
             padding: '0px',
             paddingRight: '0px',
             paddingLeft: '0px',
@@ -105,24 +113,21 @@ export default function Settings() {
         }}
         >
         <IoIosSettings
-        style={{
-            width: '50px',
-            height: '50px',
-            margin: '0px',
-            padding: '0px',
-        }}
+        className='settingsIcon'
         />
-        <div className='settingsMenu'>
-            <div
-            onClick={menuMyAccountOrSignIn}
-            >{currentETHAccount ? 'My Account' : 'Sign In'}</div>
-            <div>How to play</div>
-            <div>Share Game</div>
-            <div
-            onClick={() => navigate(`/lobby`)}
-            >Lobby</div>
-        </div>
-
+        {menuOpened ? (
+            <div className='settingsMenu'>
+                <div
+                onClick={menuMyAccountOrSignIn}
+                >{currentETHAccount ? 'My Account' : 'Sign In'}</div>
+                <div>How to play</div>
+                <div
+                // share game if in game if not choi
+                >Share Game</div>
+                <div
+                onClick={() => navigate(`/lobby`)}
+                >Lobby</div>
+            </div>) : ''}
         </div>
     </>
   )

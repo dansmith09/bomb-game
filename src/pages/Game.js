@@ -1442,11 +1442,11 @@ export default function Game() {
               </div>
             </>
           })}
-          {
-          playerOneSelectedCards.length > 0 ? (
-            <div className={'blurContainer'} onClick={handleClearSelectedCards}></div>
-          ): ''
-          }
+            {
+            playerOneSelectedCards.length > 0 ? (
+              <div className={'blurContainer'} onClick={handleClearSelectedCards}></div>
+            ): ''
+            }
             {playerOneSetCards.map((card, index) => {
             // get Top Value.
             let topValue = -10
