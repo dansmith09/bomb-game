@@ -543,7 +543,7 @@ export default function Game() {
       return
       }
       // Can only play card if your turn and gameStage is Main Stage or Show Down
-      if(playerTurn !== "Player One" && (gameStage === 'Main Stage' || gameStage === 'Show Down')) {
+      if(playerTurn !== "Player One" && (gameStage !== 'Set')) {
           toast.error("Wait until it's your turn to make a move!", {
             position: toast.POSITION.TOP_CENTER,
             autoClose: 2000
@@ -711,12 +711,36 @@ export default function Game() {
       }
     }
 
+    const handleShareBtn = () => {
+      if (navigator.share) {
+        navigator.share({
+          text: 
+          `Come play bomb with me!
+          
+          Click the link and let's get started:
+          https://bomb-game-beta.vercel.app/play/${gameId}`
+        })
+      } else {
+        navigator.clipboard.writeText(`https://bomb-game-beta.vercel.app/play/${gameId}`)
+        toast.success("Game Link Copied To Clipboard", {
+            position: toast.POSITION.BOTTOM_CENTER,
+            autoClose: 2000
+        })
+      }
+    }
+
     const playDownCard = (card) => {
-      debugger
       if(playerOneSetCards.length > 0 || playerOneCards.length > 0) {
         return;
       }
-      
+      // Can only play card if your turn and gameStage is Main Stage or Show Down
+      if(playerTurn !== "Player One" && (gameStage !== 'Set')) {
+        toast.error("Wait until it's your turn to make a move!", {
+            position: toast.POSITION.TOP_CENTER,
+            autoClose: 2000
+        })
+      return
+      }
       // Get Game State
       let game = {}
       onValue(ref(db, `games/${gameId}`), (snapshot) => {
@@ -1369,11 +1393,18 @@ export default function Game() {
             {/* Conditional Rendering depending on game state */}
             {
               gameStatus === "Waiting for players" &&
-              <button 
-                onClick={(e) => joinGame(e,thisGameId,playerOne)}
-                className='gameBtn joinGameBtn'>
-                  Join Game
-              </button>
+              <>
+                <button 
+                  onClick={(e) => joinGame(e,thisGameId,playerOne)}
+                  className='gameBtn joinGameBtn'>
+                    Join Game
+                </button>
+                <button 
+                  onClick={handleShareBtn}
+                  className='gameBtn shareGameBtn'>
+                    Share Game
+                </button>
+              </>
             }
             {
               gameStatus === "Waiting for players to be ready" &&

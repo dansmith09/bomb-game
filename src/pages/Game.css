@@ -90,6 +90,7 @@
     position: fixed;
     top: 15px;
     right: 55px;
+    width: 150px;
     border: 2px solid white;
     border-radius: 20px;
     padding: 10px;
@@ -119,6 +120,38 @@
     color: white;
 }
 
+.lobbyContainer {
+    background-color: var(--BG-grey) !important;
+}
+
+.gameCard {
+    border-radius: 20px !important;
+    border: white 2px solid !important;
+    background-color: #454547 !important;
+    width: 250px !important;
+}
+.gameCard h5{
+    color: white;
+}
+.gameCard:hover {
+    background-color: #3c3c3d !important;
+}
+.lobbyBtn {
+    border: white 2px solid !important;
+    color: black !important;
+}
+
+.lobbyBtn:hover{
+    color: white !important;
+}
+
+.lobbyJoinGameBtn {
+    background-color: var(--green) !important;
+}
+
+.lobbyViewGameBtn {
+    background-color: var(--purple) !important;
+}
 .waitingForReadyDiv {
     display: flex;
     align-items: center;
@@ -139,7 +172,7 @@
 
 .gameBtn {
     color: black;
-    width: 150px;
+    width: 160px;
     height: 50px;
     border: 2px solid white
 }
@@ -149,14 +182,26 @@
 }
 
 .joinGameBtn {
+    background-color: var(--green);
+    padding: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 20px;
+    position: absolute;
+    top: 45px;
+    left: 240px;
+    text-align: center;
+}
+
+.shareGameBtn {
     background-color: var(--purple);
     padding: 10px;
     padding-left: 30px;
     padding-right: 30px;
     border-radius: 20px;
     position: absolute;
-    top: 65px;
-    left: 245px;
+    top: 115px;
+    left: 240px;
     text-align: center;
 }
 
@@ -181,7 +226,7 @@
     border-radius: 20px;
     position: absolute;
     top: 65px;
-    left: 460px;
+    left: 455px;
     z-index: 9999;
 }
 .clearCardsBtn {
@@ -192,7 +237,7 @@
     border-radius: 20px;
     position: absolute;
     top: 65px;
-    left: 30px;
+    left: 25px;
     z-index: 9999;
 }
 

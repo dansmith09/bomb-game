@@ -1,10 +1,10 @@
 import React, { useEffect, useState, useContext } from 'react'
 import { db } from '../firebase'
 import { set, ref, onValue } from 'firebase/database'
-import { Button, Card } from 'react-bootstrap'
+import { Button } from 'react-bootstrap'
 import { ethers } from "ethers";
 import { toast } from 'react-toastify'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { uid } from "uid";
 import { CurrentAccountContext } from '../components/App';
 
@@ -148,7 +148,9 @@ export default function Lobby() {
             const games = snapshot.val();
             if (games !== null) {
                 Object.values(games).map((game) => {
-                    newGameList.push(game)
+                    if(game.currentPlayers < 2) {
+                        newGameList.push(game)
+                    }
                 });
                 setGameLobbyList(newGameList);
             } else {
@@ -160,27 +162,38 @@ export default function Lobby() {
 
   return (
     <>
-        <Card className='p-4'>
+        <div className='p-4 lobbyContainer'
+        style={{
+            backgroud:'#8e90aa',
+        }}>
             <h2 className='text-center mb-4'>Game Lobby</h2>
-            <Button onClick={(e) => handleStartNewGame(e)}>Start New Game</Button>
+            <Button
+                className='p-3 m-3 text-center gameCard'
+                onClick={(e) => handleStartNewGame(e)}>
+                    Start New Game
+            </Button>
+            <h3 className='p-3 m-3 text-center mb-4'>Join A Game</h3>
         {gameLobbyList?.map((game) => {
             return <>
-                <Card className='p-2 m-3 text-center'>
+                <div className='p-3 m-3 text-center gameCard'>
                     <div key={game.gameId}>
                         <h5 className='m-0'>{'Players: ' + game.currentPlayers + '/' + game.maxPlayers}</h5>
-                        <Link to={`/account/${game.playerOne}`}><p className='m-1'>{game.playerOne}</p></Link>
                         {game.currentPlayers !== game.maxPlayers && 
-                        <Button onClick={(e => joinGame(e, game.gameId, game.playerOne))} className='w-100 text-center mt-2' type='submit'>
+                        <Button
+                            onClick={(e => joinGame(e, game.gameId, game.playerOne))}
+                            className='w-100 text-center mt-2 lobbyBtn lobbyJoinGameBtn' type='submit'>
                             Join Game
                         </Button>
                         }
-                        <Button onClick={() => navigate(`/play/${game.gameId}`)} className='w-100 text-center mt-2' type='submit'>
+                        <Button 
+                            onClick={() => navigate(`/play/${game.gameId}`)}
+                            className='w-100 text-center mt-2 lobbyBtn lobbyViewGameBtn' type='submit'>
                             View Game
                         </Button>
                     </div>
-                </Card>
+                </div>
             </>
         })}
-        </Card>
+        </div>
     </>
 )}
