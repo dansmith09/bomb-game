@@ -12,6 +12,7 @@ import { Container } from 'react-bootstrap'
 import 'react-toastify/dist/ReactToastify.css'
 import { ToastContainer } from 'react-toastify'
 import Nav from './Nav';
+import Settings from './Settings';
 
 // https://www.youtube.com/watch?v=3P6bmhire-Y Routing
 
@@ -29,6 +30,7 @@ function App() {
     style={{minHeight: "100vh",}}>
         <ToastContainer limit={3}/>
         <Nav/>
+        <Settings/>
         <Routes>
           <Route path='/' element={<Lobby/>}/>
           <Route path='/lobby' element={<Lobby/>}/>

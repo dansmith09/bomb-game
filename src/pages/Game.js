@@ -922,7 +922,7 @@ export default function Game() {
         return; // exit function if not a player
       }
       // throw error if select different card value in non facedown stage of game
-      if(gameStage === 'Main Stage' || 'Show Down') {
+      if(gameStage !== 'Set') {
         // you cannot select cards of different values
         let selectedCardValueArr = []
         playerOneSelectedCards.map((card => {
