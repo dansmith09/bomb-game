@@ -542,7 +542,7 @@ export default function Game() {
         })
       return
       }
-      // HERE 
+      // Can only play card if your turn and gameStage is Main Stage or Show Down
       if(playerTurn !== "Player One" && (gameStage === 'Main Stage' || gameStage === 'Show Down')) {
           toast.error("Wait until it's your turn to make a move!", {
             position: toast.POSITION.TOP_CENTER,
@@ -922,7 +922,7 @@ export default function Game() {
         return; // exit function if not a player
       }
       // throw error if select different card value in non facedown stage of game
-      if(gameStage === 'Main Stage') {
+      if(gameStage === 'Main Stage' || 'Show Down') {
         // you cannot select cards of different values
         let selectedCardValueArr = []
         playerOneSelectedCards.map((card => {
@@ -1442,7 +1442,7 @@ export default function Game() {
               </div>
             </>
           })}
-          {/* BLUR ELEMENT TODO */
+          {
           playerOneSelectedCards.length > 0 ? (
             <div className={'blurContainer'} onClick={handleClearSelectedCards}></div>
           ): ''
