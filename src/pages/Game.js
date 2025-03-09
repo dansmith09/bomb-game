@@ -46,6 +46,10 @@ export default function Game() {
       '4s', '4h', '4c', '4d',
       '3s', '3h', '3c', '3d',
     ])
+    
+    // Game Settings
+    const [isMobile, setIsMobile] = useState(false);
+    
     // Cards State
     // Player One
     const [playerOneSelectedCards, setPlayerOneSelectedCards] = useState([])
@@ -80,6 +84,15 @@ export default function Game() {
     const [gameWon, setGameWon] = useState(false)
 
     useEffect(() => {
+      // Check for mobile mode
+      const checkScreenSize = () => {
+        setIsMobile(window.matchMedia("(max-width: 640px)").matches);
+      };
+  
+      // Run check initially and on resize
+      checkScreenSize();
+      window.addEventListener("resize", checkScreenSize);
+        
       onValue(ref(db, `games/${gameId}`), (snapshot) => {
         const game = snapshot.val();
         if (game !== null) {
