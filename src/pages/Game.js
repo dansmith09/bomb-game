@@ -731,7 +731,7 @@ export default function Game() {
           `Come play bomb with me!
           
           Click the link and let's get started:
-          https://bomb-game-beta.vercel.app/play/${gameId}`
+          https://bombtcg.com/play/${gameId}`
         })
       } else {
         navigator.clipboard.writeText(`https://bomb-game-beta.vercel.app/play/${gameId}`)
