@@ -9,6 +9,10 @@
     background-color: var(--BG-grey);
 }
 
+.mobileMode {
+    transform: rotate(-90deg);
+}
+
 .gameContainer{
     box-shadow: 0 0 20px rgba(0,0,0,0.1),
     0 0 40px rgba(0,0,0,0.1),
