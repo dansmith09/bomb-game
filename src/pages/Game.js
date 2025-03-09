@@ -1202,7 +1202,7 @@ export default function Game() {
   return (
     <>
         {gameWon ? <Confetti className={'confetti'}/> : ''}
-        <div className='gameContainer' style={{
+        <div className={`gameContainer ${ isMobile? 'mobileMode' : ''}`} style={{
           minWidth: '640px',
           minHeight: '360px',
           background: gameStage === 'Set' ? '#d3b2e2' : playerTurn === 'Player One' ? '#e1e7db' : '#d7bfc7'
