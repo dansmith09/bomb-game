@@ -90,6 +90,16 @@
     -webkit-backdrop-filter: blur(5.9px);
 }
 
+
+.blurContainerMobile {
+    height: 200%;
+    width: 200%;
+    left: -50%;
+    top: -50%;
+    /* TODO: The above code is an absolute hack should be optimised */
+}
+
+
 .settingsMenu {
     position: fixed;
     top: 15px;
