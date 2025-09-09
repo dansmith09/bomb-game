@@ -722,7 +722,8 @@ export default function Game() {
       if(
         playerOneDownCards.length === 0 && 
         playerOneSetCards.length === 0 &&
-        playerOneDownCards.length === 0) {
+        playerOneDownCards.length === 0 &&
+        playerOneCards.length === 0) {
         handleWinGame()
       }
     }
