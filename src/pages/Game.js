@@ -719,7 +719,11 @@ export default function Game() {
       }
       handleClearSelectedCards();
       // Check for win
-      if(playerOneDownCards.length < 1 && playerOneSetCards.length < 0 && playerOneDownCards.length < 0) {
+      if(
+        playerOneDownCards.length === 0 && 
+        playerOneSetCards.length === 0 &&
+        playerOneDownCards.length === 0 &&
+        playerOneCards.length === 0) {
         handleWinGame()
       }
     }
@@ -1488,7 +1492,7 @@ export default function Game() {
           })}
             {
             playerOneSelectedCards.length > 0 ? (
-              <div className={'blurContainer'} onClick={handleClearSelectedCards}></div>
+              <div className={isMobile? 'blurContainer blurContainerMobile' : 'blurContainer'} onClick={handleClearSelectedCards}></div>
             ): ''
             }
             {playerOneSetCards.map((card, index) => {
